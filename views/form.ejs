@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            background: #f0f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        label {
+            width: 120px;
+            font-weight: bold;
+        }
+
+        input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #777;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-left: 120px;
+        }
+
+        button {
+            background: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+
+        <form action="/register" method="POST">
+
+            <div class="row">
+                <label>Name:</label>
+                <input type="text" name="name" value="<%= old.name || '' %>">
+            </div>
+            <% if (errors.name) { %>
+                <p class="error"><%= errors.name %></p>
+            <% } %>
+
+            <div class="row">
+                <label>Email:</label>
+                <input type="email" name="email" value="<%= old.email || '' %>">
+            </div>
+            <% if (errors.email) { %>
+                <p class="error"><%= errors.email %></p>
+            <% } %>
+
+            <div class="row">
+                <label>Username:</label>
+                <input type="text" name="username" value="<%= old.username || '' %>">
+            </div>
+            <% if (errors.username) { %>
+                <p class="error"><%= errors.username %></p>
+            <% } %>
+
+            <div class="row">
+                <label>Password:</label>
+                <input type="password" name="password">
+            </div>
+            <% if (errors.password) { %>
+                <p class="error"><%= errors.password %></p>
+            <% } %>
+
+            <button type="submit">Register</button>
+
+        </form>
+    </div>
+</body>
+</html>
